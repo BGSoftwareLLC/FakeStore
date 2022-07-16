@@ -6,7 +6,7 @@ using FreshMvvm;
 using System;
 using System.Collections.Generic;
 
-namespace SwiftMD.Mobile.App.ViewModels
+namespace FakeStore.ViewModels
 {
     public class BaseViewModel : FreshBasePageModel
     {

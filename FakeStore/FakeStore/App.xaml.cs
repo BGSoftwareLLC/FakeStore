@@ -1,8 +1,8 @@
 ﻿using FakeStore.Services;
+using FakeStore.ViewModels;
 using FakeStore.Views;
 using FakeStore.ViewsModels;
 using FreshMvvm;
-using SwiftMD.Mobile.App.Services;
 using System;
 using Xamarin.Forms;
 
@@ -19,11 +19,17 @@ namespace FakeStore
                 FreshIOC.Container.Register<IFakeStoreApi, FakeStoreApi>(); // Singleton / constructor injection to view models
 
                 var loginView = new LoginView();
-                var page = FreshPageModelResolver.BindingPageModel(null, loginView, new LoginViewModel());
+                var poweredby = FreshIOC.Container.Resolve<IPoweredBy>();
+                var loginPage = FreshPageModelResolver.BindingPageModel(null, loginView, new LoginViewModel(poweredby));
+
+                var fakeStoreItemListView = new FakeStoreItemListView();
+                var fakeStoreApi = FreshIOC.Container.Resolve<IFakeStoreApi>();
+                var fakeStoreItemListViewPage = FreshPageModelResolver.BindingPageModel(null, fakeStoreItemListView, new FakeStoreItemListViewModel(fakeStoreApi));
+                var fakeStoreContainer = new FreshNavigationContainer(fakeStoreItemListViewPage, "FakeStoreContainer");
 
                 FreshPageModelResolver.PageModelMapper = new AppPageModelMapper();
-                var navContainer = new FreshNavigationContainer(page, "LoginNavigationContainer");
-                MainPage = navContainer;
+                var loginContainer = new FreshNavigationContainer(loginPage, "LoginNavigationContainer");
+                MainPage = loginContainer;
             }
             catch (Exception e)
             {

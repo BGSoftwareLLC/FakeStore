@@ -1,7 +1,7 @@
 ﻿using FreshMvvm;
 using System;
 
-namespace SwiftMD.Mobile.App.Services
+namespace FakeStore.Services
 {
     class AppPageModelMapper : IFreshPageModelMapper
     {

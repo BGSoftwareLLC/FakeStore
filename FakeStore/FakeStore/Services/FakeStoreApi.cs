@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace FakeStore.Services
 {
-    class FakeStoreApi : IFakeStoreApi
+    public class FakeStoreApi : IFakeStoreApi
     {
         private IFakeStoreApi fakestoreapi { get; set; }
         private string url => "https://fakestoreapi.com";

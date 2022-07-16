@@ -1,24 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:behaviors="clr-namespace:FakeStore.Behaviors"
+             xmlns:controls="clr-namespace:FakeStore.Controls"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
              x:Class="FakeStore.Views.LoginView">
-
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
+    <StackLayout Padding="10,0,10,0"
+                 VerticalOptions="FillAndExpand">
+        <Image HorizontalOptions="Center"
+               Source="logo.png"/>
+        <controls:RoundedEntry Placeholder="Email"
+                               Text="{Binding Email}"
+                               x:Name="EmailEntry">
+            <controls:RoundedEntry.Behaviors>
+                <behaviors:EmailValidator IsValid="{Binding BindingContext.IsEmailValid, Source={x:Reference EmailEntry}, Mode=TwoWay}"/>
+            </controls:RoundedEntry.Behaviors>
+        </controls:RoundedEntry>
+        <controls:RoundedEntry IsPassword="True"
+                               Placeholder="Password"
+                               Text="{Binding Password}"
+                               x:Name="PasswordEntry">
+            <controls:RoundedEntry.Behaviors>
+                <behaviors:RequiredLengthValidator IsRequiredLength="{Binding BindingContext.IsRequiredLength, Source={x:Reference PasswordEntry}, Mode=TwoWay}"
+                                                   RequiredLength="5"/>
+            </controls:RoundedEntry.Behaviors>
+        </controls:RoundedEntry>
+        <Button BackgroundColor="Black"
+                Command="{Binding LoginCommand}"
+                CornerRadius="5"
+                Margin="0,20,0,0"
+                Text="Login"
+                TextColor="White"/>
+        <Label HorizontalOptions="Center"
+               Margin="0,0,0,10"
+               Text="{Binding PoweredBy}"
+               VerticalOptions="EndAndExpand"/>
     </StackLayout>
-
 </ContentPage>
