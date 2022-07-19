@@ -11,8 +11,7 @@ using System;namespace FakeStore.ViewModels
             {
                 return new Command(() =>
                 {
-
-                    throw new NotImplementedException();
+                    CoreMethods.SwitchOutRootNavigation("FakeStoreContainer");
                 });
             }
         }

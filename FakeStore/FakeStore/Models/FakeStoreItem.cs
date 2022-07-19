@@ -8,11 +8,11 @@
         public string description { get; set; }
         public string category { get; set; }
         public string image { get; set; }
-        class Rating
-        {
-            public float rate { get; set; }
-            public int count { get; set; }
-        }
+        //public class rating
+        //{
+        //    public float rate { get; set; }
+        //    public int count { get; set; }
+        //}
     }
 }
 

@@ -8,5 +8,10 @@ namespace FakeStore.Views
         {
             InitializeComponent();
         }
+        protected override bool OnBackButtonPressed()
+        {
+            // eat Back button to not allow going back beyond root.  
+            return true;
+        }
     }
 }

@@ -1,13 +1,13 @@
 ﻿using FakeStore.Models;
 using Refit;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace FakeStore.Services
 {
-    [Headers("Content-Type: application/json", "Accept: */*", "Connection: keep-alive", "Accept: text/plain")]
     public interface IFakeStoreApi
     {
         [Get("/products")]
-        Task<FakeStoreItemsResponse> GetFakeStoreItems();
+        Task<IEnumerable<FakeStoreItem>> GetFakeStoreItems();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using FakeStore.Models;
 using Refit;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace FakeStore.Services
@@ -14,7 +15,7 @@ namespace FakeStore.Services
             fakestoreapi = RestService.For<IFakeStoreApi>(url);
         }
 
-        public async Task<FakeStoreItemsResponse> GetFakeStoreItems()
+        public async Task<IEnumerable<FakeStoreItem>> GetFakeStoreItems()
         {
             var response = await fakestoreapi.GetFakeStoreItems();
             return response;
