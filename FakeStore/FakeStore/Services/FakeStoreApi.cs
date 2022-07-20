@@ -20,5 +20,10 @@ namespace FakeStore.Services
             var response = await fakestoreapi.GetFakeStoreItems();
             return response;
         }
+        public async Task<IEnumerable<string>> GetFakeStoreCategories()
+        {
+            var response = await fakestoreapi.GetFakeStoreCategories();
+            return response;
+        }
     }
 }

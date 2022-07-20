@@ -8,18 +8,33 @@
                      Text="LogOut"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding FakeStoreItemList}" SelectionMode="None"
-                  x:Name="FakeStoreItemList">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ImageCell Command="{Binding BindingContext.FakeStoreItemSelectedCommand, Source={x:Reference FakeStoreItemList}}"
-                               CommandParameter="{Binding .}"
-                               Detail="{Binding description}"
-                               ImageSource="{Binding image}"
-                               Text="{Binding title}">
-                    </ImageCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <StackLayout>
+
+    <Picker BackgroundColor="White"
+                            ItemsSource="{Binding CategoryList}"
+                            SelectedItem="{Binding SelectedCategory}"
+                            Title="Category"/>            
+    <Picker BackgroundColor="White"
+                            ItemsSource="{Binding SortByList}"
+                            SelectedItem="{Binding SelectedSortBy}"
+                            Title="Sort By"/>            
+            
+            
+            
+            <ListView ItemsSource="{Binding FakeStoreItemList}"
+                      SelectionMode="None"
+                      x:Name="FakeStoreItemList">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ImageCell Command="{Binding BindingContext.FakeStoreItemSelectedCommand, Source={x:Reference FakeStoreItemList}}"
+                                   CommandParameter="{Binding .}"
+                                   Detail="{Binding description}"
+                                   ImageSource="{Binding image}"
+                                   Text="{Binding title}">
+                        </ImageCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

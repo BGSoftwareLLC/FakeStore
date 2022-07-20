@@ -9,5 +9,8 @@ namespace FakeStore.Services
     {
         [Get("/products")]
         Task<IEnumerable<FakeStoreItem>> GetFakeStoreItems();
+
+        [Get("/products/categories")]
+        Task<IEnumerable<string>> GetFakeStoreCategories();
     }
 }
