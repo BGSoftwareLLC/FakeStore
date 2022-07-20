@@ -9,18 +9,14 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-
-    <Picker BackgroundColor="White"
-                            ItemsSource="{Binding CategoryList}"
-                            SelectedItem="{Binding SelectedCategory}"
-                            Title="Category"/>            
-    <Picker BackgroundColor="White"
-                            ItemsSource="{Binding SortByList}"
-                            SelectedItem="{Binding SelectedSortBy}"
-                            Title="Sort By"/>            
-            
-            
-            
+            <Picker BackgroundColor="White"
+                    ItemsSource="{Binding CategoryList}"
+                    SelectedItem="{Binding SelectedCategory}"
+                    Title="Category"/>
+            <Picker BackgroundColor="White"
+                    ItemsSource="{Binding SortByList}"
+                    SelectedItem="{Binding SelectedSortBy}"
+                    Title="Sort By"/>
             <ListView ItemsSource="{Binding FakeStoreItemList}"
                       SelectionMode="None"
                       x:Name="FakeStoreItemList">

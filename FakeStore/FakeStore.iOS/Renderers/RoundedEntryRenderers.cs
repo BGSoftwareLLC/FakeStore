@@ -1,12 +1,11 @@
-using System.ComponentModel;
 using FakeStore.Controls;
-using FakeStore.iOS.RoundedEntryRenderer;
-using UIKit;
-using Xamarin.Forms.Platform.iOS;
-using Xamarin.Forms;
 using FakeStore.iOS.Renderers;
+using FakeStore.iOS.RoundedEntryRenderer;
+using System.ComponentModel;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer (typeof(RoundedEntry), typeof(RoundedEntryRenderer))]
+[assembly: ExportRenderer(typeof(RoundedEntry), typeof(RoundedEntryRenderer))]
 
 namespace FakeStore.iOS.RoundedEntryRenderer
 {

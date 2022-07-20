@@ -1,6 +1,5 @@
 ﻿using Android.Content;
 using AndroidX.Core.Content;
-using AndroidX.Core.Content.Resources;
 using FakeStore.Controls;
 using FakeStore.Droid.Renderers;
 using System.ComponentModel;

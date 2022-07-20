@@ -31,63 +31,36 @@ namespace FakeStore.ViewModels
             switch (SelectedSortBy)
             {
                 case "Price":
-                    FakeStoreItemList = new ObservableCollection<FakeStoreItem>(SelectedCategory == "All"  || SelectedCategory == null ? allfakestoreitems .OrderBy(o => o.price)
+                    FakeStoreItemList = new ObservableCollection<FakeStoreItem>(SelectedCategory == "All" || SelectedCategory == null ? allfakestoreitems.OrderBy(o => o.price)
                                                                                                         : allfakestoreitems.Where(x => x.category == SelectedCategory).OrderBy(o => o.price));
                     break;
                 case "Rating":
-                    FakeStoreItemList = new ObservableCollection<FakeStoreItem>(SelectedCategory == "All"  || SelectedCategory == null ? allfakestoreitems .OrderBy(o => o.price)
+                    FakeStoreItemList = new ObservableCollection<FakeStoreItem>(SelectedCategory == "All" || SelectedCategory == null ? allfakestoreitems.OrderBy(o => o.rating.rate)
                                                                                                         : allfakestoreitems.Where(x => x.category == SelectedCategory).OrderBy(o => o.rating.rate));
                     break;
                 case "Count":
-                    FakeStoreItemList = new ObservableCollection<FakeStoreItem>(SelectedCategory == "All"  || SelectedCategory == null ? allfakestoreitems .OrderBy(o => o.price)
+                    FakeStoreItemList = new ObservableCollection<FakeStoreItem>(SelectedCategory == "All" || SelectedCategory == null ? allfakestoreitems.OrderBy(o => o.rating.count)
                                                                                                         : allfakestoreitems.Where(x => x.category == SelectedCategory).OrderBy(o => o.rating.count));
                     break;
                 case "None":
                 default:
-                    OnSelectedCategoryChanged();
+                    FakeStoreItemList = new ObservableCollection<FakeStoreItem>(SelectedCategory == "All" || SelectedCategory == null ? allfakestoreitems
+                                                                                                        : allfakestoreitems.Where(x => x.category == SelectedCategory));
                     break;
             }
-            
-
         }
-        
+
         public virtual void OnSelectedCategoryChanged()
         {
-            if (SelectedCategory == null)
-                return;
+            //if (SelectedCategory == null)
+            //    return;
 
             UpdateFakeStoreItemListByCategoryAndSortOrder();
-            
-            //if (SelectedCategory == "All")
-            //{
-            //    FakeStoreItemList = new ObservableCollection<FakeStoreItem>(allfakestoreitems);
-            //}
-            //else
-            //{
-            //    FakeStoreItemList = new ObservableCollection<FakeStoreItem>(allfakestoreitems.Where(x => x.category == SelectedCategory));
-            //}
         }
 
         public virtual void OnSelectedSortByChanged()
         {
             UpdateFakeStoreItemListByCategoryAndSortOrder();
-            //switch (SelectedSortBy)
-            //{
-            //    case "Price":
-            //        //FakeStoreItemList.OrderBy(o => o.price);
-            //        FakeStoreItemList = new ObservableCollection<FakeStoreItem>(allfakestoreitems.Where(x => x.category == SelectedCategory).OrderBy(o => o.price));
-            //        break;
-            //    case "Rating":
-            //        FakeStoreItemList.OrderBy(o => o.rating.rate);
-            //        break;
-            //    case "Count":
-            //        FakeStoreItemList.OrderBy(o => o.rating.count);
-            //        break;
-            //    case "None":
-            //    default:
-            //        OnSelectedCategoryChanged();
-            //        break;
-            //}
         }
 
         public ICommand FakeStoreItemSelectedCommand

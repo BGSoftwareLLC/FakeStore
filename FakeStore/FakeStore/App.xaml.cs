@@ -26,9 +26,9 @@ namespace FakeStore
                 var fakeStoreApi = FreshIOC.Container.Resolve<IFakeStoreApi>();
                 var fakeStoreItemListViewPage = FreshPageModelResolver.BindingPageModel(null, fakeStoreItemListView, new FakeStoreItemListViewModel(fakeStoreApi));
                 var fakeStoreContainer = new FreshNavigationContainer(fakeStoreItemListViewPage, "FakeStoreContainer")
-                { 
+                {
                     BarBackgroundColor = Color.DarkGray,
-                    BarTextColor = Color.White
+                    BarTextColor = Color.Black
                 };
 
                 FreshPageModelResolver.PageModelMapper = new AppPageModelMapper();
