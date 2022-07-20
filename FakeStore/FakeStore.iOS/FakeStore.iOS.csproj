@@ -65,6 +65,8 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\RendererDrawingHelpers.cs" />
+    <Compile Include="Renderers\RoundedEntryRenderers.cs" />
     <Compile Include="Services\Powered.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
