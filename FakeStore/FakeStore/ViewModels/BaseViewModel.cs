@@ -5,6 +5,8 @@ using FluentValidation.Results;
 using FreshMvvm;
 using System;
 using System.Collections.Generic;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace FakeStore.ViewModels
 {
@@ -14,7 +16,17 @@ namespace FakeStore.ViewModels
         protected IFakeStoreApi FakeStoreApi { get => fakeStoreApi; set => fakeStoreApi = value; }
         public bool isBusy { get; set; } = false;
 
-
+        public ICommand LogoutCommand
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    CoreMethods.SwitchOutRootNavigation("LoginNavigationContainer");
+                    CoreMethods.PopToRoot(false);
+                });
+            }
+        }
         protected void Validate<T, U>(U model) where T : AbstractValidator<U>, new()
         {
             var validator = new T();

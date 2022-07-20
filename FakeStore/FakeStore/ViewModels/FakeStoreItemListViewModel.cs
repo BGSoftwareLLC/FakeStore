@@ -12,17 +12,6 @@ namespace FakeStore.ViewModels
     {
         public ObservableCollection<FakeStoreItem> FakeStoreItemList { get; private set; }
 
-        public ICommand LogoutCommand
-        {
-            get
-            {
-                return new Command(() =>
-                {
-                    CoreMethods.SwitchOutRootNavigation("LoginNavigationContainer");
-                });
-            }
-        }
-
         public ICommand FakeStoreItemSelectedCommand
         {
             get

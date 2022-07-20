@@ -8,8 +8,7 @@
                      Text="LogOut"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView BackgroundColor="Pink"
-                  ItemsSource="{Binding FakeStoreItemList}"
+        <ListView ItemsSource="{Binding FakeStoreItemList}" SelectionMode="None"
                   x:Name="FakeStoreItemList">
             <ListView.ItemTemplate>
                 <DataTemplate>

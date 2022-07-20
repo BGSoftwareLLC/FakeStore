@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
+﻿using FakeStore.iOS.Services;
+using FakeStore.Services;
 using Foundation;
+using FreshMvvm;
 using UIKit;
 
 namespace FakeStore.iOS
@@ -22,6 +21,7 @@ namespace FakeStore.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            FreshIOC.Container.Register<IPoweredBy, Powered>(); // Singleton / constructor injection to view models
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
