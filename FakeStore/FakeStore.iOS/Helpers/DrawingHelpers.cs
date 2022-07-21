@@ -1,9 +1,9 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-namespace FakeStore.iOS.Renderers
+namespace FakeStore.iOS.Helpers
 {
-    public static class RendererDrawingHelpers
+    public static class DrawingHelpers
     {
         public static void DrawRoundedBorder(UIKit.UIView control)
         {

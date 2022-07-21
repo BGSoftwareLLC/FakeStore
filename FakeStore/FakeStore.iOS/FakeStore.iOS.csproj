@@ -63,10 +63,11 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Helpers\DrawingHelpers.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Renderers\RendererDrawingHelpers.cs" />
     <Compile Include="Renderers\RoundedEntryRenderers.cs" />
+    <Compile Include="Effects\RoundedPickerEffect.cs" />
     <Compile Include="Services\Powered.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />

@@ -1,5 +1,5 @@
 using FakeStore.Controls;
-using FakeStore.iOS.Renderers;
+using FakeStore.iOS.Helpers;
 using FakeStore.iOS.RoundedEntryRenderer;
 using System.ComponentModel;
 using Xamarin.Forms;
@@ -16,7 +16,7 @@ namespace FakeStore.iOS.RoundedEntryRenderer
         protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.Entry> e)
         {
             base.OnElementChanged(e);
-            RendererDrawingHelpers.DrawRoundedBorder(Control);
+            DrawingHelpers.DrawRoundedBorder(Control);
         }
 
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)

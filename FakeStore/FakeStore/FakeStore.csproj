@@ -20,10 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Effects\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Views\FakeStoreItemListView.xaml.cs">
       <DependentUpon>Views\FakeStoreItemListView.xaml</DependentUpon>
     </Compile>

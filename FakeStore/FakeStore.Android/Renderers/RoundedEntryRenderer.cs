@@ -1,6 +1,6 @@
 ﻿using Android.Content;
-using AndroidX.Core.Content;
 using FakeStore.Controls;
+using FakeStore.Droid.Helpers;
 using FakeStore.Droid.Renderers;
 using System.ComponentModel;
 using Xamarin.Forms;
@@ -20,7 +20,7 @@ namespace FakeStore.Droid.Renderers
             base.OnElementChanged(e);
             if (Control != null)
             {
-                this.Control.Background = ContextCompat.GetDrawable(Context, Resource.Drawable.RoundedEntryLayout);
+                DrawingHelpers.DrawRoundedBorder(this.Control);
             }
         }
 
