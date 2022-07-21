@@ -6,9 +6,13 @@
         <ToolbarItem Command="{Binding LogoutCommand}"
                      Text="LogOut"/>
     </ContentPage.ToolbarItems>
-    <ScrollView>
-        <StackLayout Margin="10,10,10,10" VerticalOptions="FillAndExpand" BackgroundColor="Transparent">
-            <Image HorizontalOptions="Center"
+    <ScrollView BackgroundColor="White">
+        <StackLayout BackgroundColor="White"
+                     HorizontalOptions="FillAndExpand"
+                     Margin="10,10,10,10"
+                     VerticalOptions="Fill">
+            <Image HeightRequest="200"
+                   HorizontalOptions="Center"
                    Source="{Binding Image}"/>
             <Label Margin="0,10,0,0"
                    Text="{Binding Title}"/>
