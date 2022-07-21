@@ -87,7 +87,8 @@
                      Text="LogOut"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Padding="8">
+        <StackLayout BackgroundColor="White"
+                     Padding="8">
             <Picker BackgroundColor="White"
                     ItemsSource="{Binding CategoryList}"
                     SelectedItem="{Binding SelectedCategory}"
@@ -104,10 +105,12 @@
                     <effects:RoundedPickerEffect/>
                 </Picker.Effects>
             </Picker>
-            <ListView ItemsSource="{Binding FakeStoreItemList}"
+            <ListView BackgroundColor="Transparent"
+                      ItemsSource="{Binding FakeStoreItemList}"
                       ItemTemplate="{StaticResource FakeStoreListItemTemplate}"
                       RowHeight="210"
                       SelectionMode="None"
+                      SeparatorColor="Black"
                       x:Name="FakeStoreItemList">
             </ListView>
         </StackLayout>

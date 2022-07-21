@@ -4,11 +4,11 @@ namespace FakeStore.ViewModels
 {
     public class FakeStoreItemViewModel : BaseViewModel
     {
-        public string Count { get; set; } = string.Empty;
+        public int Count { get; set; } = 0;
 
-        public string Rate { get; set; } = string.Empty;
+        public float Rate { get; set; } = 0;
 
-        public string Price { get; set; } = string.Empty;
+        public float Price { get; set; } = 0;
 
         public string Category { get; set; } = string.Empty;
 
@@ -27,9 +27,9 @@ namespace FakeStore.ViewModels
             Description = fakestoreitem.description;
             Category = fakestoreitem.category;
 
-            Price = fakestoreitem.price.ToString("0.00");
-            Rate = fakestoreitem.rating.rate.ToString("0.0");
-            Count = fakestoreitem.rating.count.ToString("0");
+            Price = fakestoreitem.price;
+            Rate = fakestoreitem.rating.rate;
+            Count = fakestoreitem.rating.count;
         }
     }
 }
