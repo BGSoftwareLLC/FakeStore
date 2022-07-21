@@ -4,6 +4,84 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              NavigationPage.HasBackButton="False"
              x:Class="FakeStore.Views.FakeStoreItemListView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="FakeStoreListItemTemplate">
+                <ViewCell x:Name="FakeStoreItemCell">
+                    <Grid BackgroundColor="Transparent">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="4*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BindingContext.FakeStoreItemSelectedCommand, Source={x:Reference FakeStoreItemList}}"
+                                                  CommandParameter="{Binding .}"/>
+                        </Grid.GestureRecognizers>
+                        <Image Grid.Column="0"
+                               Grid.RowSpan="6"
+                               HorizontalOptions="Center"
+                               Margin="5"
+                               Source="{Binding image}"
+                               VerticalOptions="Center"/>
+                        <Label FontAttributes="Bold"
+                               FontSize="Title"
+                               Grid.Column="1"
+                               Grid.Row="0"
+                               HorizontalOptions="StartAndExpand"
+                               LineBreakMode="TailTruncation"
+                               Text="{Binding title}"
+                               TextColor="Black"
+                               VerticalOptions="CenterAndExpand"/>
+                        <Label FontAttributes="Italic"
+                               FontSize="Subtitle"
+                               Grid.Column="1"
+                               Grid.Row="1"
+                               HorizontalOptions="StartAndExpand"
+                               LineBreakMode="TailTruncation"
+                               Text="{Binding description}"
+                               TextColor="Black"
+                               VerticalOptions="CenterAndExpand"/>
+                        <Label FontSize="Caption"
+                               Grid.Column="1"
+                               Grid.Row="2"
+                               HorizontalOptions="StartAndExpand"
+                               Text="{Binding category, Converter={StaticResource prefixValueConverter}, ConverterParameter='Category:  '}"
+                               TextColor="Black"
+                               VerticalOptions="StartAndExpand"/>
+                        <Label FontSize="Caption"
+                               Grid.Column="1"
+                               Grid.Row="3"
+                               HorizontalOptions="StartAndExpand"
+                               Text="{Binding rating.rate, Converter={StaticResource prefixValueConverter}, ConverterParameter='Rating:  '}"
+                               TextColor="Black"
+                               VerticalOptions="CenterAndExpand"/>
+                        <Label FontSize="Caption"
+                               Grid.Column="1"
+                               Grid.Row="4"
+                               HorizontalOptions="StartAndExpand"
+                               Text="{Binding rating.count, Converter={StaticResource prefixValueConverter}, ConverterParameter='Count:  '}"
+                               TextColor="Black"
+                               VerticalOptions="StartAndExpand"/>
+                        <Label FontSize="Caption"
+                               Grid.Column="1"
+                               Grid.Row="5"
+                               HorizontalOptions="StartAndExpand"
+                               Text="{Binding price, Converter={StaticResource prefixValueConverter}, ConverterParameter='$ '}"
+                               TextColor="Black"
+                               VerticalOptions="StartAndExpand"/>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.ToolbarItems>
         <ToolbarItem Command="{Binding LogoutCommand}"
                      Text="LogOut"/>
@@ -27,18 +105,10 @@
                 </Picker.Effects>
             </Picker>
             <ListView ItemsSource="{Binding FakeStoreItemList}"
+                      ItemTemplate="{StaticResource FakeStoreListItemTemplate}"
+                      RowHeight="210"
                       SelectionMode="None"
                       x:Name="FakeStoreItemList">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ImageCell Command="{Binding BindingContext.FakeStoreItemSelectedCommand, Source={x:Reference FakeStoreItemList}}"
-                                   CommandParameter="{Binding .}"
-                                   Detail="{Binding description}"
-                                   ImageSource="{Binding image}"
-                                   Text="{Binding title}">
-                        </ImageCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
     </ContentPage.Content>

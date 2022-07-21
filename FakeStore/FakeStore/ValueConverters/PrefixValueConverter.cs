@@ -11,9 +11,8 @@ namespace FakeStore.ValueConverters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var input = value as string;
+            string input = value.ToString();
             var prefix = parameter as string;
-            //return $"Category:  {input}";
             return $"{prefix}{input}";
         }
 
