@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:i18n="clr-namespace:FakeStore.i18n;assembly=FakeStore"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FakeStore.Views.FakeStoreItemView">
     <ContentPage.ToolbarItems>
@@ -18,10 +19,10 @@
                    Text="{Binding Title}"/>
             <Label Margin="0,10,0,0"
                    Text="{Binding Description}"/>
-            <Label Text="{Binding Category, Converter={StaticResource prefixValueConverter}, ConverterParameter='Category:  '}"/>
-            <Label Text="{Binding Count, Converter={StaticResource prefixValueConverter}, ConverterParameter='Count:  '}"/>
-            <Label Text="{Binding Rate, Converter={StaticResource prefixValueConverter}, ConverterParameter='Rating:  '}"/>
-            <Label Text="{Binding Price, Converter={StaticResource prefixValueConverter}, ConverterParameter='$'}"/>
+            <Label Text="{Binding Category, Converter={StaticResource prefixValueConverter}, ConverterParameter={i18n:Translate idCategoryColonSpaceSpace}}"/>
+            <Label Text="{Binding Count, Converter={StaticResource prefixValueConverter}, ConverterParameter={i18n:Translate idCountColonSpaceSpace}}"/>
+            <Label Text="{Binding Rate, Converter={StaticResource prefixValueConverter}, ConverterParameter={i18n:Translate idRatingColonSpaceSpace}}"/>
+            <Label Text="{Binding Price, Converter={StaticResource prefixValueConverter}, ConverterParameter={i18n:Translate idDollarSign}}"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>

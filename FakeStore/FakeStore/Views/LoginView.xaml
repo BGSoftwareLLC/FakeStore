@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:behaviors="clr-namespace:FakeStore.Behaviors"
              xmlns:controls="clr-namespace:FakeStore.Controls"
+             xmlns:i18n="clr-namespace:FakeStore.i18n;assembly=FakeStore"
              xmlns:triggers="clr-namespace:FakeStore.Triggers"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              NavigationPage.HasNavigationBar="False"
@@ -10,7 +11,7 @@
                  VerticalOptions="FillAndExpand">
         <Image HorizontalOptions="Center"
                Source="logo.png"/>
-        <controls:RoundedEntry Placeholder="Email"
+        <controls:RoundedEntry Placeholder="{i18n:Translate idEmail}"
                                Text="{Binding Email}"
                                x:Name="EmailEntry">
             <controls:RoundedEntry.Behaviors>
@@ -19,7 +20,7 @@
         </controls:RoundedEntry>
         <Grid>
             <controls:RoundedEntry IsPassword="{Binding Source={x:Reference ShowPasswordActualTrigger}, Path=HidePassword}"
-                                   Placeholder="Password"
+                                   Placeholder="{i18n:Translate idPassword}"
                                    Text="{Binding Password}"
                                    x:Name="PasswordEntry">
                 <controls:RoundedEntry.Behaviors>

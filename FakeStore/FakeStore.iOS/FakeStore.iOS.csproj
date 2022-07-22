@@ -68,6 +68,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderers\RoundedEntryRenderers.cs" />
     <Compile Include="Effects\RoundedPickerEffect.cs" />
+    <Compile Include="Resources\Localize.cs" />
     <Compile Include="Services\Powered.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />

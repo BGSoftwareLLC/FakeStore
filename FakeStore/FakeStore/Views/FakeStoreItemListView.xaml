@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:effects="clr-namespace:FakeStore.Effects"
+             xmlns:i18n="clr-namespace:FakeStore.i18n;assembly=FakeStore"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              NavigationPage.HasBackButton="False"
              x:Class="FakeStore.Views.FakeStoreItemListView">
@@ -51,26 +52,26 @@
                                Grid.Column="1"
                                Grid.Row="2"
                                HorizontalOptions="StartAndExpand"
-                               Text="{Binding category, Converter={StaticResource prefixValueConverter}, ConverterParameter='Category:  '}"
+                               Text="{Binding category, Converter={StaticResource prefixValueConverter}, ConverterParameter={i18n:Translate idCategoryColonSpaceSpace}}"
                                TextColor="Black"
                                VerticalOptions="Start"/>
                         <Label FontSize="Caption"
                                Grid.Column="1"
                                Grid.Row="3"
                                HorizontalOptions="StartAndExpand"
-                               Text="{Binding rating.rate, Converter={StaticResource prefixValueConverter}, ConverterParameter='Rating:  '}"
+                               Text="{Binding rating.rate, Converter={StaticResource prefixValueConverter}, ConverterParameter={i18n:Translate idRatingColonSpaceSpace}}"
                                TextColor="Black"/>
                         <Label FontSize="Caption"
                                Grid.Column="1"
                                Grid.Row="4"
                                HorizontalOptions="StartAndExpand"
-                               Text="{Binding rating.count, Converter={StaticResource prefixValueConverter}, ConverterParameter='Count:  '}"
+                               Text="{Binding rating.count, Converter={StaticResource prefixValueConverter}, ConverterParameter={i18n:Translate idCountColonSpaceSpace}}"
                                TextColor="Black"/>
                         <Label FontSize="Caption"
                                Grid.Column="1"
                                Grid.Row="5"
                                HorizontalOptions="StartAndExpand"
-                               Text="{Binding price, Converter={StaticResource prefixValueConverter}, ConverterParameter='$ '}"
+                               Text="{Binding price, Converter={StaticResource prefixValueConverter}, ConverterParameter={i18n:Translate idDollarSign}}"
                                TextColor="Black"/>
                     </Grid>
                 </ViewCell>
@@ -79,7 +80,7 @@
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
         <ToolbarItem Command="{Binding LogoutCommand}"
-                     Text="LogOut"/>
+                     Text="{i18n:Translate idLogout}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout BackgroundColor="White"
@@ -87,7 +88,7 @@
             <Picker BackgroundColor="White"
                     ItemsSource="{Binding CategoryList}"
                     SelectedItem="{Binding SelectedCategory}"
-                    Title="Category">
+                    Title="{i18n:Translate idCategory}">
                 <Picker.Effects>
                     <effects:RoundedPickerEffect/>
                 </Picker.Effects>
@@ -95,7 +96,7 @@
             <Picker BackgroundColor="White"
                     ItemsSource="{Binding SortByList}"
                     SelectedItem="{Binding SelectedSortBy}"
-                    Title="Sort By">
+                    Title="{i18n:Translate idSortBy}">
                 <Picker.Effects>
                     <effects:RoundedPickerEffect/>
                 </Picker.Effects>

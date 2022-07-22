@@ -74,9 +74,10 @@ namespace FakeStore.ViewModels
 
         public static readonly IEnumerable<string> sortbylist = new ReadOnlyCollection<string>(new List<string>
         {
-            "Price",
-            "Rating",
-            "Count"
+            FakeStore.Resources.Resources.idNone,
+            FakeStore.Resources.Resources.idPrice,
+            FakeStore.Resources.Resources.idRating,
+            FakeStore.Resources.Resources.idCount
         });
 
         public override async void Init(object initData)
@@ -89,14 +90,13 @@ namespace FakeStore.ViewModels
                 FakeStoreItemList = new ObservableCollection<FakeStoreItem>(allfakestoreitems);
                 var fakestorecategories = await FakeStoreApi.GetFakeStoreCategories();
                 CategoryList = new ObservableCollection<string>(fakestorecategories);
-                CategoryList.Insert(0, "All");  // insert the "All" Category at the beginning
+                CategoryList.Insert(0, FakeStore.Resources.Resources.idAll);  // insert the "All" Category at the beginning
                 SortByList = new ObservableCollection<string>(sortbylist);
-                SortByList.Insert(0, "None");   // insert the "None" sort at the beginning
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
-                await CoreMethods.DisplayAlert("Error", ex.Message, "Ok");
+                await CoreMethods.DisplayAlert(FakeStore.Resources.Resources.idError, ex.Message, FakeStore.Resources.Resources.idOk);
             }
         }
 

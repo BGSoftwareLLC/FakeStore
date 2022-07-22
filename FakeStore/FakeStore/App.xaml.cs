@@ -37,8 +37,8 @@ namespace FakeStore
             }
             catch (Exception e)
             {
-                Xamarin.Forms.Application.Current.MainPage.DisplayAlert("Error"
-                                                    , e.Message, "Ok");
+                Xamarin.Forms.Application.Current.MainPage.DisplayAlert(FakeStore.Resources.Resources.idError
+                                                    , e.Message, FakeStore.Resources.Resources.idOk);
             }
         }
 

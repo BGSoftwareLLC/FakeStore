@@ -23,9 +23,9 @@ namespace FakeStore.ViewsModels
                     Debug.WriteLine(IsRequiredLength);
 
                     if (!IsEmailValid)
-                        CoreMethods.DisplayAlert("Error", "Please enter a valid email address to login.", "Ok");
+                        CoreMethods.DisplayAlert(FakeStore.Resources.Resources.idError, FakeStore.Resources.Resources.idInvalidEmail, FakeStore.Resources.Resources.idOk);
                     else if (!IsRequiredLength)
-                        CoreMethods.DisplayAlert("Error", "Please enter password of at least 5 characters to login.", "Ok");
+                        CoreMethods.DisplayAlert(FakeStore.Resources.Resources.idError, FakeStore.Resources.Resources.idInvalidPassord, FakeStore.Resources.Resources.idOk);
                     else
                         CoreMethods.SwitchOutRootNavigation("FakeStoreContainer");
 
