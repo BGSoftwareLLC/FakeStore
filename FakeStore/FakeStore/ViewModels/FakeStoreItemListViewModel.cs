@@ -52,7 +52,7 @@ namespace FakeStore.ViewModels
 
         public virtual void OnSelectedCategoryChanged()
         {
- 
+
             UpdateFakeStoreItemListByCategoryAndSortOrder();
         }
 

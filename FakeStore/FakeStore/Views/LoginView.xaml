@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:behaviors="clr-namespace:FakeStore.Behaviors"
              xmlns:controls="clr-namespace:FakeStore.Controls"
+             xmlns:triggers="clr-namespace:FakeStore.Triggers"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              NavigationPage.HasNavigationBar="False"
              x:Class="FakeStore.Views.LoginView">
@@ -16,15 +17,30 @@
                 <behaviors:EmailValidator IsValid="{Binding BindingContext.IsEmailValid, Source={x:Reference EmailEntry}, Mode=TwoWay}"/>
             </controls:RoundedEntry.Behaviors>
         </controls:RoundedEntry>
-        <controls:RoundedEntry IsPassword="True"
-                               Placeholder="Password"
-                               Text="{Binding Password}"
-                               x:Name="PasswordEntry">
-            <controls:RoundedEntry.Behaviors>
-                <behaviors:RequiredLengthValidator IsRequiredLength="{Binding BindingContext.IsRequiredLength, Source={x:Reference PasswordEntry}, Mode=TwoWay}"
-                                                   RequiredLength="5"/>
-            </controls:RoundedEntry.Behaviors>
-        </controls:RoundedEntry>
+        <Grid>
+            <controls:RoundedEntry IsPassword="{Binding Source={x:Reference ShowPasswordActualTrigger}, Path=HidePassword}"
+                                   Placeholder="Password"
+                                   Text="{Binding Password}"
+                                   x:Name="PasswordEntry">
+                <controls:RoundedEntry.Behaviors>
+                    <behaviors:RequiredLengthValidator IsRequiredLength="{Binding BindingContext.IsRequiredLength, Source={x:Reference PasswordEntry}, Mode=TwoWay}"
+                                                       RequiredLength="5"/>
+                </controls:RoundedEntry.Behaviors>
+            </controls:RoundedEntry>
+            <ImageButton HeightRequest="20"
+                         HorizontalOptions="End"
+                         Margin="0,0,10,0"
+                         Source="eyeicon"
+                         VerticalOptions="Center">
+                <ImageButton.Triggers>
+                    <EventTrigger Event="Clicked">
+                        <triggers:ShowHidePasswordTrigger HideIcon="eyehideicon"
+                                                          ShowIcon="eyeicon"
+                                                          x:Name="ShowPasswordActualTrigger"/>
+                    </EventTrigger>
+                </ImageButton.Triggers>
+            </ImageButton>
+        </Grid>
         <Button BackgroundColor="Black"
                 Command="{Binding LoginCommand}"
                 CornerRadius="5"
