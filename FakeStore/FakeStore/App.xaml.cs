@@ -28,7 +28,7 @@ namespace FakeStore
                 var fakeStoreContainer = new FreshNavigationContainer(fakeStoreItemListViewPage, "FakeStoreContainer")
                 {
                     BarBackgroundColor = Color.DarkGray,
-                    BarTextColor = Color.Black
+                    BarTextColor = Color.White
                 };
 
                 FreshPageModelResolver.PageModelMapper = new AppPageModelMapper();

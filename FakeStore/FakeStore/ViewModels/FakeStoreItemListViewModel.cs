@@ -28,25 +28,26 @@ namespace FakeStore.ViewModels
             Debug.WriteLine($"Category:  {SelectedCategory}");
             Debug.WriteLine($"Sort By:  {SelectedSortBy}");
 
-            switch (SelectedSortBy)
+            if (SelectedSortBy == FakeStore.Resources.Resources.idPrice)
             {
-                case "Price":
-                    FakeStoreItemList = new ObservableCollection<FakeStoreItem>(SelectedCategory == "All" || SelectedCategory == null ? allfakestoreitems.OrderBy(o => o.price)
-                                                                                                        : allfakestoreitems.Where(x => x.category == SelectedCategory).OrderBy(o => o.price));
-                    break;
-                case "Rating":
-                    FakeStoreItemList = new ObservableCollection<FakeStoreItem>(SelectedCategory == "All" || SelectedCategory == null ? allfakestoreitems.OrderBy(o => o.rating.rate)
-                                                                                                        : allfakestoreitems.Where(x => x.category == SelectedCategory).OrderBy(o => o.rating.rate));
-                    break;
-                case "Count":
-                    FakeStoreItemList = new ObservableCollection<FakeStoreItem>(SelectedCategory == "All" || SelectedCategory == null ? allfakestoreitems.OrderBy(o => o.rating.count)
-                                                                                                        : allfakestoreitems.Where(x => x.category == SelectedCategory).OrderBy(o => o.rating.count));
-                    break;
-                case "None":
-                default:
-                    FakeStoreItemList = new ObservableCollection<FakeStoreItem>(SelectedCategory == "All" || SelectedCategory == null ? allfakestoreitems
-                                                                                                        : allfakestoreitems.Where(x => x.category == SelectedCategory));
-                    break;
+                FakeStoreItemList = new ObservableCollection<FakeStoreItem>(SelectedCategory == "All" || SelectedCategory == null ? allfakestoreitems.OrderBy(o => o.price)
+                                                                                                    : allfakestoreitems.Where(x => x.category == SelectedCategory).OrderBy(o => o.price));
+            }
+            else if (SelectedSortBy == FakeStore.Resources.Resources.idRating)
+            {
+                FakeStoreItemList = new ObservableCollection<FakeStoreItem>(SelectedCategory == "All" || SelectedCategory == null ? allfakestoreitems.OrderBy(o => o.rating.rate)
+                                                                                                    : allfakestoreitems.Where(x => x.category == SelectedCategory).OrderBy(o => o.rating.rate));
+            }
+            else if (SelectedSortBy == FakeStore.Resources.Resources.idCount)
+            {
+                FakeStoreItemList = new ObservableCollection<FakeStoreItem>(SelectedCategory == "All" || SelectedCategory == null ? allfakestoreitems.OrderBy(o => o.rating.count)
+                                                                                                    : allfakestoreitems.Where(x => x.category == SelectedCategory).OrderBy(o => o.rating.count));
+            }
+            // below also handles the "None" case
+            else
+            {
+                FakeStoreItemList = new ObservableCollection<FakeStoreItem>(SelectedCategory == "All" || SelectedCategory == null ? allfakestoreitems
+                                                                                                    : allfakestoreitems.Where(x => x.category == SelectedCategory));
             }
         }
 
